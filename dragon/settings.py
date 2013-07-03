@@ -1,4 +1,6 @@
 # Django settings for dragon project.
+import os
+ROOT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__),'../'))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -29,7 +31,7 @@ ALLOWED_HOSTS = []
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Asia/Shanghai'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -50,7 +52,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.join(ROOT_PATH,'static')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -90,6 +92,7 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
+    os.path.join(ROOT_PATH,'template'),
 )
 
 MIDDLEWARE_CLASSES = (
@@ -129,6 +132,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'djcelery',
+    'dnspod',
 )
 
 # A sample logging configuration. The only tangible logging
