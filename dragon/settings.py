@@ -1,6 +1,7 @@
 # Django settings for dragon project.
 import os
 ROOT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__),'../'))
+LOGIN_URL = '/login/'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -92,7 +93,6 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.Loader',
-    os.path.join(ROOT_PATH,'template'),
 )
 
 MIDDLEWARE_CLASSES = (
@@ -114,6 +114,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(ROOT_PATH,'template'),
 )
 
 import djcelery
@@ -132,6 +133,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'djcelery',
+    'login',
     'dnspod',
 )
 

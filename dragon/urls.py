@@ -15,7 +15,8 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
-    (r'dnspod/',include('dnspod.urls')),
+    (r'^dnspod/',include('dnspod.urls')),
+    (r'^login/',include('login.urls')),
 )
 
 if settings.DEBUG:
